@@ -1,12 +1,54 @@
-html, body {
-  margin: 0;
-  padding: 0;
+html, body{
+  overflow: auto;
 }
 
 .container {
   display: flex;
-  justify-content:space-around;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: row; /* Arrange children in a row */
+  min-height: 120vh; /* Ensure the container height exceeds the viewport height */
+  width: 100vw; /* Full width of the viewport */
+  box-sizing: border-box; /* Include border in the element's total width and height */
+  background-color: lightgrey;
 }
 
+.input, .resume {
+  border: 2px solid pink;
+  flex: 1; /* Each component takes up equal space */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+}
+
+.personalDetails, .education, .experience {
+  display: flex;
+  flex: 1; /* Allow the children divs to fill up the available space */
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px; /* Add margin to create space around the items */
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 60%;
+}
+.label{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.nameInput{
+  display:flex;
+  flex-direction: column;
+}
+
+input{
+  border-radius: 10px;
+  height: 20px;
+  width: 60%;
+  background-color: #EEF2FA;
+  border: 2px solid transparent;
+}
+label{
+  font-weight: bold;
+}
