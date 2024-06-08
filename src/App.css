@@ -4,40 +4,48 @@ html, body{
 
 .container {
   display: flex;
-  flex-direction: row; /* Arrange children in a row */
-  min-height: 120vh; /* Ensure the container height exceeds the viewport height */
-  width: 100vw; /* Full width of the viewport */
-  box-sizing: border-box; /* Include border in the element's total width and height */
+  flex-direction: row; 
+  min-height: 120vh;
+  width: 100vw; 
+  box-sizing: border-box; 
   background-color: lightgrey;
 }
 
 .input, .resume {
-  border: 2px solid pink;
-  flex: 1; /* Each component takes up equal space */
   display: flex;
   flex-direction: column;
   padding: 10px;
   align-items: center;
 }
 
+.input {
+  flex:0.4;
+}
+
+.resume {
+  flex: 0.6;
+}
+
 .personalDetails, .education, .experience {
   display: flex;
-  flex: 1; /* Allow the children divs to fill up the available space */
+  flex: 1; 
   background-color: white;
   border-radius: 20px;
   padding: 10px;
-  margin: 10px; /* Add margin to create space around the items */
+  margin: 10px; 
   box-sizing: border-box;
   flex-direction: column;
   width: 60%;
 }
-.label{
+
+h2{
   display: flex;
-  justify-content: center;
+  
   margin: 0;
+  margin-bottom: 10px;
 }
 
-.nameInput{
+.nameInput, .educationInput{
   display:flex;
   flex-direction: column;
 }
@@ -51,4 +59,44 @@ input{
 }
 label{
   font-weight: bold;
+}
+
+.resumeContainer{
+  display: flex;
+  flex: 1; 
+  background-color: white;
+  color: white;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+}
+
+.personalInfoSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #12486a;
+  height: 13%;
+}
+
+.fullNameDiv{
+  font-size: xx-large;
+}
+
+.restOfPersonInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.infoDiv{
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.emailImage{
+  height: 20px;
+  width: 20px;
 }
