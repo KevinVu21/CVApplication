@@ -1,7 +1,9 @@
 
 import React, {useState} from 'react';
 import './App.css';
-import emailIcon from './small-mail-envelope.png';
+import emailIcon from './icons8-email-64.png';
+import phoneIcon from './icons8-phone-50.png'
+import locationIcon from './icons8-location-50.png'
 
 function App() {
   const [personal, setPersonal] = useState({
@@ -86,45 +88,106 @@ function PersonalDetails({personal, handlePersonalChange}){
   );
 }
 
-function Education(){
-  return(
+function Education() {
+  const [showInput, setShowInput] = useState(false);
+  const [educationInfo, setEducationInfo] = useState({
+    school: '',
+    degree: '',
+    startDate: '',
+    endDate: '',
+    location: ''
+  });
+  const [savedEducations, setSavedEducations] = useState([]);
+
+  const handleAddEducation = () => {
+    setShowInput(true);
+  };
+
+  const handleSaveEducation = () => {
+    setSavedEducations([...savedEducations, educationInfo]);
+    setEducationInfo({
+      school: '',
+      degree: '',
+      startDate: '',
+      endDate: '',
+      location: ''
+    });
+    setShowInput(false);
+  };
+
+  const handleDeleteEducation = (index) => {
+    const updatedEducations = [...savedEducations];
+    updatedEducations.splice(index, 1);
+    setSavedEducations(updatedEducations);
+  };
+
+  return (
     <div className='education'>
       <h2>Education</h2>
-      <div className="educationInput">
-      <label htmlFor='School'>School</label>
-      <input
-      type='text'
-      id='school'
-      name='school'
-      />
-      <label htmlFor='degree'>Degree</label>
-      <input
-      type='text'
-      id='degree'
-      name='degree'
-      />
-      <label htmlFor='startDate'>Start Date</label>
-      <input
-      type='month'
-      id='startDate'
-      name='startDate'
-      />
-      <label htmlFor='endDate'>End Date</label>
-      <input
-      type='month'
-      id='endDate'
-      name='endDate'
-      />
-      <label htmlFor='schoolLocation'>Location</label>
-      <input
-      type='text'
-      id='schoolLocation'
-      name='schoolLocation'
-      />
-      </div>
-    </div> 
-  )
+  
+      {showInput ? (
+        <div className="educationInput">
+          <label htmlFor='school'>School</label>
+          <input
+            type='text'
+            id='school'
+            name='school'
+            value={educationInfo.school}
+            onChange={(e) => setEducationInfo({ ...educationInfo, school: e.target.value })}
+          />
+          <label htmlFor='degree'>Degree</label>
+          <input
+            type='text'
+            id='degree'
+            name='degree'
+            value={educationInfo.degree}
+            onChange={(e) => setEducationInfo({ ...educationInfo, degree: e.target.value })}
+          />
+          <label htmlFor='startDate'>Start Date</label>
+          <input
+            type='month'
+            id='startDate'
+            name='startDate'
+            value={educationInfo.startDate}
+            onChange={(e) => setEducationInfo({ ...educationInfo, startDate: e.target.value })}
+          />
+          <label htmlFor='endDate'>End Date</label>
+          <input
+            type='month'
+            id='endDate'
+            name='endDate'
+            value={educationInfo.endDate}
+            onChange={(e) => setEducationInfo({ ...educationInfo, endDate: e.target.value })}
+          />
+          <label htmlFor='schoolLocation'>Location</label>
+          <input
+            type='text'
+            id='schoolLocation'
+            name='schoolLocation'
+            value={educationInfo.location}
+            onChange={(e) => setEducationInfo({ ...educationInfo, location: e.target.value })}
+          />
+          <button onClick={handleSaveEducation} className='saveButton'>Save</button>
+        </div>
+      ) : (
+        <div className='educationInfo'>
+          <div>
+        {savedEducations.map((savedEducation, index) => (
+          <div class='schoolInformation' key={index}>
+            <div className='savedSchool'>
+              {savedEducation.school}
+            </div>
+              <button onClick={() => handleDeleteEducation(index)}>Delete</button>
+          </div>
+        ))}
+          </div>
+        <button onClick={handleAddEducation}>Add Education</button>
+        </div>
+      )}
+    </div>
+  );
 }
+
 function Experience(){
   return(
     <div className='experience'>
@@ -173,13 +236,25 @@ function ResumeContainer({personal}){
         <div className='restOfPersonInfo'>
           {personal.userEmail && (
             <div className='infoDiv'>
-            <img src={emailIcon} className='emailImage'/>
+            <img src={emailIcon} className='images' alt='mail image'/>
             <span>
             {personal.userEmail}
             </span>
             </div>)}
-          {personal.phoneNumber && <div className='infoDiv'>{personal.phoneNumber}</div>}
-          {personal.addy && <div className='infoDiv'>{personal.addy}</div>}
+          {personal.phoneNumber && (
+            <div className='infoDiv'>
+              <img src={phoneIcon} className='images' alt='image of a phone'/>
+              <span>
+              {personal.phoneNumber}
+              </span>
+            </div>)}
+          {personal.addy && (
+            <div className='infoDiv'>
+              <img src={locationIcon} className='images' alt='image of a location pin'/>
+              <span>
+              {personal.addy}
+              </span>
+            </div>)}
         </div>
       </div>
       
