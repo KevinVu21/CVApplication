@@ -122,3 +122,39 @@ label{
 .saveButton{
   margin-top: 10px;
 }
+.educationSection{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: black;
+  margin: 20px 50px 0px 50px;
+}
+
+.educationTab{
+  display: flex;
+  background-color: lightgrey;
+  justify-content: center;
+  color:#12486a
+}
+
+.educationLeft{
+  display: flex;
+  flex-direction: column;
+}
+
+.educationDetails{
+  display:flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.educationDates{
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+}
+
+.educationRight{
+  display: flex;
+  flex-direction: column;
+}
