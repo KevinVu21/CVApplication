@@ -3,7 +3,7 @@ import phoneIcon from './icons8-phone-50.png'
 import locationIcon from './icons8-location-50.png'
 import './App.css';
 
-function ResumeContainer({ personal, educationInfo, savedEducations }) {
+function ResumeContainer({ personal, educationInfo, savedEducations, experienceInfo, savedExperiences }) {
     const hasEducation = () => {
         return (
           savedEducations.length > 0 ||
@@ -13,6 +13,16 @@ function ResumeContainer({ personal, educationInfo, savedEducations }) {
           educationInfo.endDate ||
           educationInfo.location
         );
+      };
+      const hasExperience = () => {
+        return (
+          savedExperiences.length > 0 ||
+          experienceInfo.companyName ||
+          experienceInfo.startDate ||
+          experienceInfo.endDate ||
+          experienceInfo.location ||
+          experienceInfo.description
+        )
       };
     function formatDate(date){
         if(!date){return ''}
@@ -60,7 +70,7 @@ function ResumeContainer({ personal, educationInfo, savedEducations }) {
                 <div className='educationLeft'>
                     <div className='educationDates'>
                         <div>
-                          {formatDate(education.startDate) + '-'}
+                          {education.startDate ? formatDate(educationInfo.startDate)+ ' - ' : ''}
                           {formatDate(education.endDate)}
                         </div>
                     </div>
@@ -68,7 +78,7 @@ function ResumeContainer({ personal, educationInfo, savedEducations }) {
                 </div>
               <div className='educationRight'>
                 <div><strong>{education.school}</strong></div>
-                <div>{education.degree}</div>
+                <div><i>{education.degree}</i></div>
               </div>
               
             </div>
@@ -77,7 +87,6 @@ function ResumeContainer({ personal, educationInfo, savedEducations }) {
             <div className='educationLeft'>
               <div className='educationDates'>
                 <div className="educationDetails">
-                  {educationInfo.startDate ? formatDate(educationInfo.startDate)+ ' - ' : ''}
                   {educationInfo.endDate && formatDate(educationInfo.endDate)}
                   </div>
               </div>
@@ -85,13 +94,52 @@ function ResumeContainer({ personal, educationInfo, savedEducations }) {
             </div>
             <div className='educationRight'>
               <div><strong>{educationInfo.school}</strong></div>
-              <div>{educationInfo.degree}</div>
+              <div><i>{educationInfo.degree}</i></div>
             </div>
           </div>
         </div>
 }
+
+{hasExperience() &&
+<div className="experienceSection">
+  <h3 className='experienceTab'>Professional Experience</h3>
+  {savedExperiences.map((experience, index) => (
+    <div key={index} className="experienceDetails">
+      <div className='experienceLeft'>
+          <div className='experienceDates'>
+            <div>
+              {experience.startDate ? formatDate(experience.startDate)+ ' - ' : ''}
+              {formatDate(experience.endDate)}
+            </div>
+          </div>
+          <div>{experience.location}</div>
       </div>
-    );
-  }
+      <div className='experienceRight'>
+        <div><strong>{experience.companyName}</strong></div>
+        <div><i>{experience.positionTitle}</i></div>
+        <div>{experience.description}</div>
+      </div>
+    </div>
+  ))}
+  <div className='experienceDetails'>
+    <div className='experienceLeft'>
+      <div className='experienceDates'>
+        <div>
+          {experienceInfo.startDate ? formatDate(experienceInfo.startDate)+ ' - ' : ''}
+          {formatDate(experienceInfo.endDate)}
+        </div>
+      </div>
+      <div>{experienceInfo.location}</div>
+    </div>
+    <div className='experienceRight'>
+      <div><strong>{experienceInfo.companyName}</strong></div>
+      <div><i>{experienceInfo.positionTitle}</i></div>
+      <div>{experienceInfo.description}</div>
+    </div>
+  </div>
+</div>
+
+}
+  </div>);}
 
   export default ResumeContainer;

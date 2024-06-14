@@ -28,7 +28,6 @@ html, body{
 
 .personalDetails, .education, .experience {
   display: flex;
-  flex: 1; 
   background-color: white;
   border-radius: 10px;
   padding: 10px;
@@ -113,7 +112,7 @@ label{
   margin-bottom: 10px;
 }
 
-.educationInfo{
+.educationInfo, .experienceInfo{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,39 +121,56 @@ label{
 .saveButton{
   margin-top: 10px;
 }
-.educationSection{
+.educationSection, .experienceSection{
   display: flex;
-  flex: 1;
   flex-direction: column;
   color: black;
   margin: 20px 50px 0px 50px;
 }
 
-.educationTab{
+.educationTab, .experienceTab{
   display: flex;
   background-color: lightgrey;
   justify-content: center;
   color:#12486a
 }
 
-.educationLeft{
+.educationLeft, .experienceLeft{
   display: flex;
   flex-direction: column;
+  flex: 0 0 200px;
 }
 
-.educationDetails{
+.educationDetails, .experienceDetails{
   display:flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
-.educationDates{
+.educationDates, .experienceDates{
   display: flex;
   flex-direction: row;
   margin-right: 30px;
+  white-space: nowrap;
 }
 
 .educationRight{
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
+  flex: 1;
+  margin-bottom: 5px;
+}
+.experienceInput{
+  display: flex;
+  flex-direction: column;
+}
+
+.companyInformation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
 }

@@ -62,6 +62,7 @@ function App() {
   const [showExperience, setShowExperience] = useState(false);
   const [experienceInfo, setExperienceInfo] = useState({
     companyName: '',
+    positionTitle:'',
     startDate: '',
     endDate: '',
     location: '',
@@ -76,6 +77,7 @@ function App() {
     setSavedExperiences([...savedExperiences, experienceInfo]);
     setExperienceInfo({
       companyName: '',
+      positionTitle: '',
       startDate: '',
       endDate: '',
       location: '',
@@ -100,7 +102,7 @@ function App() {
   return (
     <div className="container" >
       <Input showExperience={showExperience} experienceInfo={experienceInfo} savedExperiences={savedExperiences} handleAddExperience={handleAddExperience} handleSaveExperience={handleSaveExperience} handleDeleteExperience={handleDeleteExperience} handleExperienceChange={handleExperienceChange} personal={personal} handlePersonalChange={handlePersonalChange} showInput={showInput} educationInfo={educationInfo} savedEducations={savedEducations} handleAddEducation={handleAddEducation} handleSaveEducation={handleSaveEducation} handleDeleteEducation={handleDeleteEducation} handleInputChange={handleInputChange}/>
-      <Resume personal={personal} educationInfo={educationInfo} savedEducations={savedEducations}/>
+      <Resume personal={personal} educationInfo={educationInfo} savedEducations={savedEducations} experienceInfo={experienceInfo} savedExperiences={savedExperiences}/>
     </div>
   );
 }
