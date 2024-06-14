@@ -8,7 +8,7 @@ html, body{
   min-height: 120vh;
   width: 100vw; 
   box-sizing: border-box; 
-  background-color: lightgrey;
+  background-color: #f3f4f6;
 }
 
 .input, .resume {
@@ -75,7 +75,7 @@ label{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #12486a;
+  background-color: #0e374e;
   height: 13%;
   padding: 20px;
 }
@@ -130,9 +130,9 @@ label{
 
 .educationTab, .experienceTab{
   display: flex;
-  background-color: lightgrey;
+  background-color: #EEF1F3;
   justify-content: center;
-  color:#12486a
+  color:#0e374e
 }
 
 .educationLeft, .experienceLeft{
@@ -144,7 +144,7 @@ label{
 .educationDetails, .experienceDetails{
   display:flex;
   flex-direction: row;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .educationDates, .experienceDates{

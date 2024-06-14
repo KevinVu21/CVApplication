@@ -70,7 +70,7 @@ function ResumeContainer({ personal, educationInfo, savedEducations, experienceI
                 <div className='educationLeft'>
                     <div className='educationDates'>
                         <div>
-                          {education.startDate ? formatDate(educationInfo.startDate)+ ' - ' : ''}
+                          {education.startDate ? formatDate(education.startDate)+ ' - ' : ''}
                           {formatDate(education.endDate)}
                         </div>
                     </div>
@@ -87,6 +87,7 @@ function ResumeContainer({ personal, educationInfo, savedEducations, experienceI
             <div className='educationLeft'>
               <div className='educationDates'>
                 <div className="educationDetails">
+                  {educationInfo.startDate ? formatDate(educationInfo.startDate)+ ' - ' : ''}
                   {educationInfo.endDate && formatDate(educationInfo.endDate)}
                   </div>
               </div>
