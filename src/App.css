@@ -20,11 +20,13 @@ html, body{
 
 .input {
   flex:0.4;
+  color: black;
 }
 
 .resume {
   flex: 0.6;
 }
+
 
 .personalDetails, .education, .experience {
   display: flex;
@@ -90,6 +92,9 @@ label{
   justify-content: space-between;
 }
 
+button{
+  background-color: #f9f9f9;
+}
 .infoDiv{
   display: flex;
   align-items: center;
