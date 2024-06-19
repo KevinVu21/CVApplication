@@ -127,6 +127,8 @@ label{
 
 .saveButton{
   margin-top: 10px;
+  background-color: #f9f9f9;
+  color: black;
 }
 .educationSection, .experienceSection{
   display: flex;
