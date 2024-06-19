@@ -71,7 +71,7 @@ function Experience({showExperience, experienceInfo, savedExperiences, handleAdd
                 <button onClick={() => handleDeleteExperience(index)}>Delete</button>
             </div>
           ))}
-          <button onClick={handleAddExperience}>Add Experience</button>
+          <button className='addInfo'onClick={handleAddExperience}>Add Experience</button>
             </div>
           )
 
