@@ -56,11 +56,11 @@ function Education({showInput, educationInfo, savedEducations, handleAddEducatio
               <div className='savedSchool'>
                 {savedEducation.school}
               </div>
-                <button onClick={() => handleDeleteEducation(index)}>Delete</button>
+                <button className='button' onClick={() => handleDeleteEducation(index)}>Delete</button>
             </div>
           ))}
             </div>
-          <button onClick={handleAddEducation}>Add Education</button>
+          <button className='button' onClick={handleAddEducation}>Add Education</button>
           </div>
         )}
       </div>
